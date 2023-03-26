@@ -1,6 +1,3 @@
--- Criação: 26-Mar-2023 às 18:07
---
-
 DROP TABLE IF EXISTS `acesso_apk`;
 CREATE TABLE `acesso_apk` (
   `senha` varchar(10) NOT NULL,
@@ -11,3 +8,16 @@ CREATE TABLE `acesso_apk` (
 
 --
 -- RELATIONS FOR TABLE `acesso_apk`:
+
+DROP TABLE IF EXISTS `acesso_cofre`;
+CREATE TABLE `acesso_cofre` (
+  `crip_cartao` varchar(20) NOT NULL,
+  `nome` varchar(25) NOT NULL,
+  `sobrenome` varchar(40) NOT NULL,
+  `data_acesso` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- RELATIONS FOR TABLE `acesso_cofre`:
+--   `crip_cartao`
+--       `cadastro` -> `crip_cartao`
