@@ -6,6 +6,8 @@ CREATE TABLE `acesso_apk` (
   `nome` varchar(60) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+ALTER TABLE `acesso_apk`
+  ADD PRIMARY KEY (`senha`);
 --
 -- RELATIONS FOR TABLE `acesso_apk`:
 
@@ -17,6 +19,8 @@ CREATE TABLE `acesso_cofre` (
   `data_acesso` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+ALTER TABLE `acesso_cofre`
+  ADD PRIMARY KEY (`crip_cartao`);
 --
 -- RELATIONS FOR TABLE `acesso_cofre`:
 --   `crip_cartao`
@@ -33,5 +37,11 @@ CREATE TABLE `cadastro` (
   `horario_acesso` set('10:00 às 11:00','11:00 às 12:00','14:00 às 15:00','15:00 às 16:00','16:00 às 15:00') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+ALTER TABLE `cadastro`
+  ADD PRIMARY KEY (`crip_cartao`);
 --
 -- RELATIONS FOR TABLE `cadastro`:
+
+ALTER TABLE `acesso_cofre`
+  ADD CONSTRAINT `acesso_cofre_ibfk_1` FOREIGN KEY (`crip_cartao`) REFERENCES `cadastro` (`crip_cartao`);
+
