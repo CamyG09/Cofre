@@ -1,0 +1,5 @@
+--
+-- Database: `cofre_banco`
+--
+CREATE DATABASE IF NOT EXISTS `cofre_banco` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+USE `cofre_banco`;
