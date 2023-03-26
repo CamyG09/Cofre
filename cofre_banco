@@ -3,3 +3,19 @@
 --
 CREATE DATABASE IF NOT EXISTS `cofre_banco` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
 USE `cofre_banco`;
+
+-- Estrutura da tabela `acesso_apk`
+--
+-- Criação: 26-Mar-2023 às 18:07
+--
+
+DROP TABLE IF EXISTS `acesso_apk`;
+CREATE TABLE `acesso_apk` (
+  `senha` varchar(10) NOT NULL,
+  `usuario` varchar(45) NOT NULL,
+  `cargo` varchar(25) NOT NULL,
+  `nome` varchar(60) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- RELATIONS FOR TABLE `acesso_apk`:
