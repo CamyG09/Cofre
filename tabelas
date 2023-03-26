@@ -21,3 +21,17 @@ CREATE TABLE `acesso_cofre` (
 -- RELATIONS FOR TABLE `acesso_cofre`:
 --   `crip_cartao`
 --       `cadastro` -> `crip_cartao`
+
+DROP TABLE IF EXISTS `cadastro`;
+CREATE TABLE `cadastro` (
+  `crip_cartao` varchar(20) NOT NULL,
+  `nome` varchar(25) NOT NULL,
+  `sobrenome` varchar(40) NOT NULL,
+  `cargo` varchar(25) NOT NULL,
+  `data_admissao` date NOT NULL,
+  `dias_acesso` set('segunda','terça','quarta','quinta','sexta') NOT NULL,
+  `horario_acesso` set('10:00 às 11:00','11:00 às 12:00','14:00 às 15:00','15:00 às 16:00','16:00 às 15:00') NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- RELATIONS FOR TABLE `cadastro`:
