@@ -4,3 +4,7 @@
 CREATE DATABASE IF NOT EXISTS `cofre_banco` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
 USE `cofre_banco`;
 
+-- Acrescentando segurança no acesso ao banco de dados e dando privilegios
+
+CREATE USER 'Bcofre'@'%' IDENTIFIED VIA mysql_native_password USING '***';
+GRANT ALL PRIVILEGES ON *.* TO 'Bcofre'@'%' REQUIRE NONE WITH GRANT OPTION MAX_QUERIES_PER_HOUR 0 MAX_CONNECTIONS_PER_HOUR 0 MAX_UPDATES_PER_HOUR 0 MAX_USER_CONNECTIONS 0;GRANT ALL PRIVILEGES ON `cofre_banco`.* TO 'Bcofre'@'%';
