@@ -44,4 +44,36 @@ ALTER TABLE `cadastro`
 
 ALTER TABLE `acesso_cofre`
   ADD CONSTRAINT `acesso_cofre_ibfk_1` FOREIGN KEY (`crip_cartao`) REFERENCES `cadastro` (`crip_cartao`);
+--
+--
+--
+-- Adicionar mais 4 colunas na tabela acesso_apk
+ALTER TABLE `acesso_apk` ADD `id_apk` INT(5) NOT NULL AFTER `nome`, ADD `tipo_acesso` VARCHAR(20) NOT NULL AFTER `id_apk`, ADD `supervisor_autorizador` VARCHAR(20) NOT NULL AFTER `tipo_acesso`, ADD `celular` VARCHAR(11) NOT NULL AFTER `supervisor_autorizador`;
+
+-- Alteração da chave primaria da tabela acesso_apk
+ALTER TABLE `acesso_apk` DROP PRIMARY KEY, ADD PRIMARY KEY(`id_apk`);
+
+-- Adicionar mais 2 colunas na tabela acesso_cofre
+ALTER TABLE `acesso_cofre` ADD `id_cofre` INT(5) NOT NULL AFTER `data_acesso`, ADD `tipo_acesso` VARCHAR(20) NOT NULL AFTER `id_cofre`;
+
+-- Alteração da chave primaria da tabela acesso_cofre
+ALTER TABLE `acesso_cofre` DROP PRIMARY KEY, ADD PRIMARY KEY(`id_cofre`);
+ 
+-- Adicionar mais 4 colunas na tabela cadastro
+ALTER TABLE `cadastro` ADD `id_cad` INT(5) NOT NULL AFTER `horario_acesso`, ADD `endereco` VARCHAR(60) NOT NULL AFTER `id_cad`, ADD `tipo_acesso` VARCHAR(20) NOT NULL AFTER `endereco`; ALTER TABLE `cadastro` ADD `celular` VARCHAR(11) NOT NULL AFTER `tipo_acesso`;
+-- Alteração da chave primaria da tabela cadastro
+ALTER TABLE `cadastro` DROP PRIMARY KEY, ADD PRIMARY KEY(`id_cad`);
+
+ 
+-- Chave estrangeiras tabela cadastro
+
+ALTER TABLE `cadastro` ADD UNIQUE(`crip_cartao`);
+ALTER TABLE `cadastro` ADD UNIQUE(`celular`);
+ALTER TABLE `cadastro` ADD UNIQUE(`cargo`);
+ALTER TABLE `cadastro` ADD UNIQUE(`tipo_acesso`);
+
+
+
+
+
 
