@@ -1,0 +1,16 @@
+Relacionamento tabela acesso_cofre com tabela cadastro
+ 
+id_cofre com tabela cadastro em id_cad
+
+tipo_acesso	com tabela cadastro em tipo_acesso
+
+crip_cartao	com tabela cadastro em crip_cartao
+
+
+Relacionamento tabela acesso_apk com tabela cadastro
+
+celular	com tabela cadastro em celular
+
+cargo com tabela cadastro em cargo
+
+tipo_acesso	com tabela cadastro em tipo_acesso
