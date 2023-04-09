@@ -65,12 +65,14 @@ ALTER TABLE `cadastro` ADD `id_cad` INT(5) NOT NULL AFTER `horario_acesso`, ADD 
 ALTER TABLE `cadastro` DROP PRIMARY KEY, ADD PRIMARY KEY(`id_cad`);
 
  
--- Chave estrangeiras tabela cadastro
-
-ALTER TABLE `cadastro` ADD UNIQUE(`crip_cartao`);
-ALTER TABLE `cadastro` ADD UNIQUE(`celular`);
-ALTER TABLE `cadastro` ADD UNIQUE(`cargo`);
-ALTER TABLE `cadastro` ADD UNIQUE(`tipo_acesso`);
+-- Indexes for table `cadastro`
+--
+ALTER TABLE `cadastro`
+  ADD PRIMARY KEY (`id_cad`),
+  ADD UNIQUE KEY `crip_cartao` (`crip_cartao`),
+  ADD UNIQUE KEY `celular` (`celular`),
+  ADD UNIQUE KEY `cargo` (`cargo`),
+  ADD UNIQUE KEY `tipo_acesso` (`tipo_acesso`);
 
 
 
